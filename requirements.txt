@@ -1,6 +1,7 @@
 jupyter
 matplotlib
 nbconvert
+pycld2
 numpy
 pandas
 scipy
@@ -9,3 +10,4 @@ tensorflow
 textattack
 torch
 transformers
+python
