@@ -1,0 +1,20 @@
+BootStrap: docker
+From: python:3.10.11-slim-bullseye
+
+%environment
+
+%files
+
+
+%labels
+	Author Redhawk18
+	MyLabel textfooler
+
+%post
+#install software
+
+	#git clone git@github.com:Redhawk18/text-fooler.git
+
+%runscript
+	echo "hello!!!!"
+
