@@ -1,13 +1,2 @@
-jupyter
-matplotlib
-nbconvert
-pycld2
-numpy
-pandas
-scipy
-sklearn
-tensorflow
+ipykernel
 textattack
-torch
-transformers
-python
