@@ -5,4 +5,4 @@
 
 module load singularity
 
-singularity exec myimage.sif jupyter notebook --no-browser --port=8888 --ip=0.0.0.0
+singularity exec textfooler.sif jupyter notebook --no-browser --port=8888 --ip=0.0.0.0
