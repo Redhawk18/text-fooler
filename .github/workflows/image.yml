@@ -19,11 +19,11 @@ jobs:
 
     - name: Build Singularity Image
       run: |
-        sudo singularity build text-fooler.sif singularity.def
+        
         ls -lah
 
     - name: Login to GHCR
-      run: echo ${{ secrets.TOKEN }} | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
+      run: echo ${{ secrets.GITHUB_TOKEN }} | singularity remote login --tokenfile -
 
     - name: Push Image to GitHub Packages
       run: singularity push textfooler.sif oras://ghcr.io/redhawk18/text-fooler/text-fooler
