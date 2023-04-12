@@ -17,13 +17,13 @@ jobs:
         wget https://github.com/sylabs/singularity/releases/download/v3.11.1/singularity-ce_3.11.1-jammy_amd64.deb
         sudo apt-get install -y ./singularity-ce_3.11.1-jammy_amd64.deb
 
-    - name: Build Singularity Image
-      run: |
-        sudo singularity build textfooler.sif singularity.def
+    # - name: Build Singularity Image
+    #   run: |
+    #     sudo singularity build textfooler.sif singularity.def
 
     - name: Login to GHCR
       run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
 
     - name: Push Image to GitHub Packages
-      run: docker push ghcr.io/${{ github.repository_owner }}/textfooler.sif
+      run: docker push ghcr.io/${{ github.repository_owner }}/text-fooler.sif
 
