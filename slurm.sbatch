@@ -4,4 +4,4 @@
 #SBATCH --partition=a100
 #SBATCH --gres=gpu:1
 
-srun singularity run text-fooler.sif
+srun singularity run text-fooler.sif -nv
