@@ -24,7 +24,7 @@ jobs:
     - name: TEST Build Singularity Image
       run: |
         touch text-fooler.sif
-        run ls -lah
+        ls -lah
 
     - name: Login to GHCR
       run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
