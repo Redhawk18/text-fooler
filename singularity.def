@@ -1,20 +1,20 @@
 BootStrap: docker
 From: python:3.10.11-slim-bullseye
 
-%environment
-
 %files
-
+    ./requirements.txt /app/requirements.txt
 
 %labels
 	Author Redhawk18
 	MyLabel textfooler
 
 %post
-#install software
+	apt update
+	apt install build-essential -y
 
-	#git clone git@github.com:Redhawk18/text-fooler.git
+	cd /app
+	pip install -r ./requirements.txt
 
 %runscript
-	echo "hello!!!!"
+	exec jupyter notebook --no-browser --port=8888 --ip=0.0.0.0
 

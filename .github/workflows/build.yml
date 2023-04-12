@@ -1,0 +1,36 @@
+name: Build and Push Singularity Image to GitHub Packages
+
+on:
+  push:
+    branches:
+      - hpc
+
+jobs:
+  build-and-push-singularity:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install Singularity
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y singularity-container
+
+    - name: Build Singularity Image
+      run: |
+        sudo singularity build textfooler.sif singularity.def
+
+    - name: Configure Docker
+      uses: docker/login-action@v1
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.PASSWORD }}
+
+    - name: Push Image to GitHub Packages
+      uses: docker/build-push-action@v2
+      with:
+        context: .
+        push: true
+        tags: ghcr.io/${{ github.repository_owner }}/textfooler:latest
