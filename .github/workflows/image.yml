@@ -25,4 +25,4 @@ jobs:
       run: echo ${{ secrets.SYLABS_TOKEN }} | singularity remote login --username Redhawk
 
     - name: Push Image to Sylabs
-      run: singularity push -U textfooler.sif library://redhawk/textfooler/textfooler:latest
+      run: singularity push -U text-fooler.sif library://redhawk/text-fooler/text-fooler:latest
