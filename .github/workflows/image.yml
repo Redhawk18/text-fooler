@@ -29,11 +29,12 @@ jobs:
     - name: Login to GHCR
       run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
 
+    - name: Push Image to GitHub Packages
+      run: docker push ghcr.io/redhawk18/text-fooler
     # - name: Push Image to GitHub Packages
-    #   run: docker push ghcr.io/redhawk18/text-fooler.sif
-    - name: Upload Artifacts to GitHub Release
-      uses: ncipollo/release-action@v1
-      with:
-        artifacts: text-fooler.sif
-        allowUpdates: true
+    #   uses: docker/build-push-action@v2
+    #   with:
+    #     context: .
+    #     push: true
+    #     tags: ghcr.io/redhawk18/text-fooler:latest
 
