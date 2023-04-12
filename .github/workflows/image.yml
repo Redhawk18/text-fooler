@@ -19,12 +19,10 @@ jobs:
 
     - name: Build Singularity Image
       run: |
-        
-        ls -lah
+        sudo singularity build text-fooler.sif singularity.def
 
-    - name: Login to GHCR
-      run: echo ${{ secrets.GITHUB_TOKEN }} | singularity remote login --tokenfile -
+    - name: Login to Sylabs
+      run: echo ${{ secrets.SYLABS_TOKEN }} | singularity remote login --username Redhawk
 
-    - name: Push Image to GitHub Packages
-      run: singularity push textfooler.sif oras://ghcr.io/redhawk18/text-fooler/text-fooler
-
+    - name: Push Image to Sylabs
+      run: singularity push -U textfooler.sif library://redhawk/textfooler/textfooler:latest
