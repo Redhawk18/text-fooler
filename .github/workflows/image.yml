@@ -19,7 +19,7 @@ jobs:
 
     - name: Build Singularity Image
       run: |
-        sudo singularity build textfooler.sif singularity.def
+        sudo singularity build text-fooler.sif singularity.def
 
     - name: Login to GHCR
       run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
