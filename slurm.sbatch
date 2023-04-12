@@ -4,4 +4,4 @@
 #SBATCH --partition=a100
 #SBATCH --gres=gpu:1
 
-srun singularity run text-fooler.sif -nv
+srun -nv singularity exec build/singularity.sif python3 build/textfooler.py
