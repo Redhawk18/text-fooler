@@ -21,16 +21,8 @@ jobs:
       run: |
         sudo singularity build textfooler.sif singularity.def
 
-    - name: Configure Docker
-      uses: docker/login-action@v1
-      with:
-        registry: ghcr.io
-        username: ${{ github.repository_owner }}
-        password: ${{ secrets.PASSWORD }}
+    - name: Login to GHCR
+      run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u USERNAME --password-stdin
 
     - name: Push Image to GitHub Packages
-      uses: docker/build-push-action@v2
-      with:
-        context: .
-        push: true
-        tags: ghcr.io/${{ github.repository_owner }}/textfooler:latest
+      run: docker push ghcr.io/USERNAME/my_container.sif
