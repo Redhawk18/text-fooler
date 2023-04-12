@@ -14,8 +14,8 @@ jobs:
 
     - name: Install Singularity
       run: |
-        sudo apt-get update
-        sudo apt-get install -y singularity-container
+        wget https://github.com/sylabs/singularity/releases/download/v3.11.1/singularity-ce_3.11.1-jammy_amd64.deb
+        sudo apt-get install -y ./singularity-ce_3.11.1-jammy_amd64.deb
 
     - name: Build Singularity Image
       run: |
