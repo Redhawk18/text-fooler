@@ -1,4 +1,5 @@
 ipykernel
 jupyterlab
 nbconvert
+tensorflow_hub
 textattack
